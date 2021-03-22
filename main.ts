@@ -77,7 +77,45 @@ function CallPlayer1 () {
         . . . . 7 7 7 . . . 7 7 7 . . . 
         . . . . 7 7 7 . . . 7 7 7 . . . 
         `)
-    animation.attachAnimation(TurtleGreen, TurtleGreen)
+    if (TurtleGreen.vx < 0) {
+        animation.attachAnimation(TurtleGreen, walking_foward)
+        TurtleGreen.addAnimationFrame(img`
+            . . . . . 7 7 7 7 7 7 7 . . . . 
+            . . . . 7 2 2 7 7 7 2 2 7 . . . 
+            . . . . 7 2 f 7 7 7 f 2 7 . . . 
+            . . . . 7 7 7 7 7 7 7 7 7 . . . 
+            . . . 5 7 7 f f f f f 7 7 5 . . 
+            . 7 7 5 5 7 7 7 7 7 7 7 5 5 7 7 
+            . 7 5 e e e 5 5 5 5 5 e e e 5 7 
+            . 7 5 e 5 5 e e e e e 5 5 e 5 7 
+            . 7 e e 5 e e 5 5 5 e e 5 e e 7 
+            . 7 5 5 e e 5 5 5 5 5 e e 5 5 7 
+            . 7 7 e e 5 e e e e e 5 e e 7 7 
+            . 7 7 5 5 e e 5 5 5 e e 5 5 7 7 
+            . . . . e e 5 e e e 5 e e . . . 
+            . . . . 7 7 7 . . . 7 7 7 . . . 
+            . . . . 7 7 7 . . . 7 7 7 . . . 
+            . . . . . . . . . . 7 7 7 . . . 
+            `)
+        TurtleGreen.addAnimationFrame(img`
+            . . . . . 7 7 7 7 7 7 7 . . . . 
+            . . . . 7 2 2 7 7 7 2 2 7 . . . 
+            . . . . 7 2 f 7 7 7 f 2 7 . . . 
+            . . . . 7 7 7 7 7 7 7 7 7 . . . 
+            . . . 5 7 7 f f f f f 7 7 5 . . 
+            . 7 7 5 5 7 7 7 7 7 7 7 5 5 7 7 
+            . 7 5 e e e 5 5 5 5 5 e e e 5 7 
+            . 7 5 e 5 5 e e e e e 5 5 e 5 7 
+            . 7 e e 5 e e 5 5 5 e e 5 e e 7 
+            . 7 5 5 e e 5 5 5 5 5 e e 5 5 7 
+            . 7 7 e e 5 e e e e e 5 e e 7 7 
+            . 7 7 5 5 e e 5 5 5 e e 5 5 7 7 
+            . . . . e e 5 e e e 5 e e . . . 
+            . . . . 7 7 7 . . . 7 7 7 . . . 
+            . . . . 7 7 7 . . . 7 7 7 . . . 
+            . . . . 7 7 7 . . . . . . . . . 
+            `)
+    }
 }
 function CallPlayer2 () {
     let TurtleBlue: animation.Animation = null
@@ -153,6 +191,10 @@ function CallPlayer2 () {
         . . . . 8 8 8 . . . 8 8 8 . . . 
         . . . . 8 8 8 . . . 8 8 8 . . . 
         `)
+    if (TurtleBlue.vx < 0) {
+        animation.attachAnimation(TurtleBlue, walking_foward)
+    }
 }
+let walking_foward: animation.Animation = null
 CallPlayer1()
 CallPlayer2()
