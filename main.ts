@@ -8,87 +8,6 @@ enum ActionKind {
     Walk_Left,
     IDLE
 }
-function CallPlayer3 () {
-    Straw = sprites.create(assets.image`Straw`, SpriteKind.Player)
-    anim1back = animation.createAnimation(ActionKind.Walk_Back, 175)
-    anim1back.addAnimationFrame(assets.image`Straw`)
-    anim1back.addAnimationFrame(assets.image`Straw`)
-    anim1back.addAnimationFrame(assets.image`Straw`)
-    anim1back.addAnimationFrame(assets.image`Straw`)
-    animation.attachAnimation(Straw, anim1back)
-    anim2foward = animation.createAnimation(ActionKind.Walk_Foward, 175)
-    anim2foward.addAnimationFrame()
-    anim2foward.addAnimationFrame(img`
-        . . . . . 2 2 2 2 2 2 2 . . . . 
-        . . . . 2 2 2 2 2 2 2 2 2 . . . 
-        . . . . 2 2 2 2 2 2 2 2 2 . . . 
-        . . . . 2 2 e e e e e 2 2 . . . 
-        . . . e e e e f 4 f e e e e . . 
-        . 2 2 e 4 f f f f f f f 4 e 2 2 
-        . 2 e f f f 4 f 4 f 4 f f f e 2 
-        . 2 e f f 4 4 f f f 4 4 f f e 2 
-        . 2 e 4 f f f f 4 f f f f 4 e 2 
-        . 2 e f f 4 4 f 4 f 4 4 f f e 2 
-        . 2 2 e 4 f f f f f f f 4 e 2 2 
-        . 2 2 e e f 4 f 4 f 4 f e e 2 2 
-        . . . . e e e e e e e e e . . . 
-        . . . . 2 2 2 . . . 2 2 2 . . . 
-        . . . . 2 2 2 . . . . . . . . . 
-        . . . . 2 2 2 . . . . . . . . . 
-        `)
-    anim2foward.addAnimationFrame(img`
-        . . . . . 2 2 2 2 2 2 2 . . . . 
-        . . . . 2 2 2 2 2 2 2 2 2 . . . 
-        . . . . 2 2 2 2 2 2 2 2 2 . . . 
-        . . . . 2 2 e e e e e 2 2 . . . 
-        . . . e e e e f 4 f e e e e . . 
-        . 2 2 e 4 f f f f f f f 4 e 2 2 
-        . 2 e f f f 4 f 4 f 4 f f f e 2 
-        . 2 e f f 4 4 f f f 4 4 f f e 2 
-        . 2 e 4 f f f f 4 f f f f 4 e 2 
-        . 2 e f f 4 4 f 4 f 4 4 f f e 2 
-        . 2 2 e 4 f f f f f f f 4 e 2 2 
-        . 2 2 e e f 4 f 4 f 4 f e e 2 2 
-        . . . . e e e e e e e e e . . . 
-        . . . . 2 2 2 . . . 2 2 2 . . . 
-        . . . . 2 2 2 . . . 2 2 2 . . . 
-        . . . . 2 2 2 . . . 2 2 2 . . . 
-        `)
-    anim2foward.addAnimationFrame(img`
-        . . . . . 2 2 2 2 2 2 2 . . . . 
-        . . . . 2 2 2 2 2 2 2 2 2 . . . 
-        . . . . 2 2 2 2 2 2 2 2 2 . . . 
-        . . . . 2 2 e e e e e 2 2 . . . 
-        . . . e e e e f 4 f e e e e . . 
-        . 2 2 e 4 f f f f f f f 4 e 2 2 
-        . 2 e f f f 4 f 4 f 4 f f f e 2 
-        . 2 e f f 4 4 f f f 4 4 f f e 2 
-        . 2 e 4 f f f f 4 f f f f 4 e 2 
-        . 2 e f f 4 4 f 4 f 4 4 f f e 2 
-        . 2 2 e 4 f f f f f f f 4 e 2 2 
-        . 2 2 e e f 4 f 4 f 4 f e e 2 2 
-        . . . . e e e e e e e e e . . . 
-        . . . . 2 2 2 . . . 2 2 2 . . . 
-        . . . . . . . . . . 2 2 2 . . . 
-        . . . . . . . . . . 2 2 2 . . . 
-        `)
-    animation.attachAnimation(Straw, anim2foward)
-    anim3right = animation.createAnimation(ActionKind.Walk_Right, 275)
-    anim3right.addAnimationFrame(assets.tile`myTile`)
-    anim3right.addAnimationFrame(assets.tile`myTile`)
-    anim3right.addAnimationFrame(assets.tile`myTile`)
-    anim3right.addAnimationFrame(assets.tile`myTile`)
-    animation.attachAnimation(Straw, anim3right)
-    anim4left = animation.createAnimation(ActionKind.Walk_Left, 275)
-    anim4left.addAnimationFrame(assets.image`Straw`)
-    anim4left.addAnimationFrame(assets.image`Straw`)
-    anim4left.addAnimationFrame(assets.image`Straw`)
-    anim4left.addAnimationFrame(assets.image`Straw`)
-    animation.attachAnimation(Straw, anim4left)
-    anim = animation.createAnimation(ActionKind.IDLE, 275)
-    anim.addAnimationFrame(assets.image`Straw`)
-    animation.attachAnimation(Straw, anim)
-}
 function CallPlayer1 () {
     TurtleBlue = sprites.create(img`
         . . . . . 6 6 6 6 6 6 6 . . . . 
@@ -761,12 +680,93 @@ function CallPlayer2 () {
         `)
     animation.attachAnimation(TurtleRed, anim)
 }
+function CallEnemy () {
+    Straw = sprites.create(assets.image`Straw`, SpriteKind.Player)
+    anim1back = animation.createAnimation(ActionKind.Walk_Back, 175)
+    anim1back.addAnimationFrame(assets.image`Straw`)
+    anim1back.addAnimationFrame(assets.image`Straw`)
+    anim1back.addAnimationFrame(assets.image`Straw`)
+    anim1back.addAnimationFrame(assets.image`Straw`)
+    animation.attachAnimation(Straw, anim1back)
+    anim2foward = animation.createAnimation(ActionKind.Walk_Foward, 175)
+    anim2foward.addAnimationFrame(assets.tile`myTile0`)
+    anim2foward.addAnimationFrame(img`
+        . . . . . 2 2 2 2 2 2 2 . . . . 
+        . . . . 2 2 2 2 2 2 2 2 2 . . . 
+        . . . . 2 2 2 2 2 2 2 2 2 . . . 
+        . . . . 2 2 e e e e e 2 2 . . . 
+        . . . e e e e f 4 f e e e e . . 
+        . 2 2 e 4 f f f f f f f 4 e 2 2 
+        . 2 e f f f 4 f 4 f 4 f f f e 2 
+        . 2 e f f 4 4 f f f 4 4 f f e 2 
+        . 2 e 4 f f f f 4 f f f f 4 e 2 
+        . 2 e f f 4 4 f 4 f 4 4 f f e 2 
+        . 2 2 e 4 f f f f f f f 4 e 2 2 
+        . 2 2 e e f 4 f 4 f 4 f e e 2 2 
+        . . . . e e e e e e e e e . . . 
+        . . . . 2 2 2 . . . 2 2 2 . . . 
+        . . . . 2 2 2 . . . . . . . . . 
+        . . . . 2 2 2 . . . . . . . . . 
+        `)
+    anim2foward.addAnimationFrame(img`
+        . . . . . 2 2 2 2 2 2 2 . . . . 
+        . . . . 2 2 2 2 2 2 2 2 2 . . . 
+        . . . . 2 2 2 2 2 2 2 2 2 . . . 
+        . . . . 2 2 e e e e e 2 2 . . . 
+        . . . e e e e f 4 f e e e e . . 
+        . 2 2 e 4 f f f f f f f 4 e 2 2 
+        . 2 e f f f 4 f 4 f 4 f f f e 2 
+        . 2 e f f 4 4 f f f 4 4 f f e 2 
+        . 2 e 4 f f f f 4 f f f f 4 e 2 
+        . 2 e f f 4 4 f 4 f 4 4 f f e 2 
+        . 2 2 e 4 f f f f f f f 4 e 2 2 
+        . 2 2 e e f 4 f 4 f 4 f e e 2 2 
+        . . . . e e e e e e e e e . . . 
+        . . . . 2 2 2 . . . 2 2 2 . . . 
+        . . . . 2 2 2 . . . 2 2 2 . . . 
+        . . . . 2 2 2 . . . 2 2 2 . . . 
+        `)
+    anim2foward.addAnimationFrame(img`
+        . . . . . 2 2 2 2 2 2 2 . . . . 
+        . . . . 2 2 2 2 2 2 2 2 2 . . . 
+        . . . . 2 2 2 2 2 2 2 2 2 . . . 
+        . . . . 2 2 e e e e e 2 2 . . . 
+        . . . e e e e f 4 f e e e e . . 
+        . 2 2 e 4 f f f f f f f 4 e 2 2 
+        . 2 e f f f 4 f 4 f 4 f f f e 2 
+        . 2 e f f 4 4 f f f 4 4 f f e 2 
+        . 2 e 4 f f f f 4 f f f f 4 e 2 
+        . 2 e f f 4 4 f 4 f 4 4 f f e 2 
+        . 2 2 e 4 f f f f f f f 4 e 2 2 
+        . 2 2 e e f 4 f 4 f 4 f e e 2 2 
+        . . . . e e e e e e e e e . . . 
+        . . . . 2 2 2 . . . 2 2 2 . . . 
+        . . . . . . . . . . 2 2 2 . . . 
+        . . . . . . . . . . 2 2 2 . . . 
+        `)
+    animation.attachAnimation(Straw, anim2foward)
+    anim3right = animation.createAnimation(ActionKind.Walk_Right, 275)
+    anim3right.addAnimationFrame(assets.tile`myTile`)
+    anim3right.addAnimationFrame(assets.tile`myTile`)
+    anim3right.addAnimationFrame(assets.tile`myTile`)
+    anim3right.addAnimationFrame(assets.tile`myTile`)
+    animation.attachAnimation(Straw, anim3right)
+    anim4left = animation.createAnimation(ActionKind.Walk_Left, 275)
+    anim4left.addAnimationFrame(assets.image`Straw`)
+    anim4left.addAnimationFrame(assets.image`Straw`)
+    anim4left.addAnimationFrame(assets.image`Straw`)
+    anim4left.addAnimationFrame(assets.image`Straw`)
+    animation.attachAnimation(Straw, anim4left)
+    anim = animation.createAnimation(ActionKind.IDLE, 275)
+    anim.addAnimationFrame(assets.image`Straw`)
+    animation.attachAnimation(Straw, anim)
+}
+let Straw: Sprite = null
 let anim: animation.Animation = null
 let anim4left: animation.Animation = null
 let anim3right: animation.Animation = null
 let anim2foward: animation.Animation = null
 let anim1back: animation.Animation = null
-let Straw: Sprite = null
 let TurtleBlue: Sprite = null
 let TurtleRed: Sprite = null
 CallPlayer1()
