@@ -191,8 +191,40 @@ function CallEnemy () {
     anim.addAnimationFrame(assets.tile`myTile0`)
     animation.attachAnimation(Straw, anim)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, location) {
+    tiles.setWallAt(location, true)
+})
+function make_map () {
+    tiles.setTilemap(tilemap`level2`)
+    for (let index = 0; index < 1200; index++) {
+        tiles.setTileAt(tiles.getTileLocation(randint(0, 254), randint(0, 254)), assets.tile`myTile9`)
+    }
+    for (let index = 0; index < 1200; index++) {
+        tiles.setTileAt(tiles.getTileLocation(randint(0, 254), randint(0, 254)), assets.tile`myTile7`)
+    }
+    for (let index = 0; index < 1200; index++) {
+        tiles.setTileAt(tiles.getTileLocation(randint(0, 254), randint(0, 254)), assets.tile`myTile4`)
+    }
+    for (let index = 0; index < 1200; index++) {
+        tiles.setTileAt(tiles.getTileLocation(randint(0, 254), randint(0, 254)), assets.tile`myTile6`)
+    }
+    for (let index = 0; index < 1200; index++) {
+        tiles.setTileAt(tiles.getTileLocation(randint(0, 254), randint(0, 254)), assets.tile`myTile5`)
+    }
+    for (let index = 0; index < 1200; index++) {
+        tiles.setTileAt(tiles.getTileLocation(randint(0, 254), randint(0, 254)), assets.tile`myTile8`)
+    }
+    for (let index = 0; index < 3000; index++) {
+        tiles.setTileAt(tiles.getTileLocation(randint(0, 225), randint(0, 225)), assets.tile`myTile3`)
+    }
+    for (let index = 0; index < 5000; index++) {
+        tiles.setTileAt(tiles.getTileLocation(randint(0, 225), randint(0, 225)), sprites.castle.tileGrass3)
+    }
+}
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, location) {
+    tiles.setWallAt(location, true)
+})
 function CallPlayer1 () {
-    scene.cameraFollowSprite(TurtleBlue)
     TurtleBlue = sprites.create(img`
         . . . . . 6 6 6 6 6 6 6 . . . . 
         . . . . 6 1 1 6 6 6 1 1 6 . . . 
@@ -528,15 +560,17 @@ function CallPlayer1 () {
         `)
     animation.attachAnimation(TurtleBlue, anim)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
+    tiles.setWallAt(location, true)
+})
 function CallPlayer2 () {
-    scene.cameraFollowSprite(TurtleRed)
     TurtleRed = sprites.create(img`
         . . . . . 2 2 2 2 2 2 2 . . . . 
         . . . . 2 1 1 2 2 2 1 1 2 . . . 
         . . . . 2 1 f 2 2 2 f 1 2 . . . 
         . . . . 2 2 2 2 2 2 2 2 2 . . . 
         . . . e 2 2 f f f f f 2 2 e . . 
-        . 2 2 e 5 2 2 2 2 2 2 2 5 e 2 2 
+        . 2 2 e 5 2 2 1 2 1 2 2 5 e 2 2 
         . 2 e e e e 5 5 5 5 5 e e e e 2 
         . 2 e e 5 5 e e e e e 5 5 e e 2 
         . 2 e 5 5 e e 5 5 5 e e 5 5 e 2 
@@ -555,7 +589,7 @@ function CallPlayer2 () {
         . . . . 2 1 f 2 2 2 f 1 2 . . . 
         . . . . 2 2 2 2 2 2 2 2 2 . . . 
         . . . e 2 2 f f f f f 2 2 e . . 
-        . 2 2 e 5 2 2 2 2 2 2 2 5 e 2 2 
+        . 2 2 e 5 2 2 1 2 1 2 2 5 e 2 2 
         . 2 e e e e 5 5 5 5 5 e e e e 2 
         . 2 e e 5 5 e e e e e 5 5 e e 2 
         . 2 e 5 5 e e 5 5 5 e e 5 5 e 2 
@@ -573,7 +607,7 @@ function CallPlayer2 () {
         . . . . 2 1 f 2 2 2 f 1 2 . . . 
         . . . . 2 2 2 2 2 2 2 2 2 . . . 
         . . . e 2 2 f f f f f 2 2 e . . 
-        . 2 2 e 5 2 2 2 2 2 2 2 5 e 2 2 
+        . 2 2 e 5 2 2 1 2 1 2 2 5 e 2 2 
         . 2 e e e e 5 5 5 5 5 e e e e 2 
         . 2 e e 5 5 e e e e e 5 5 e e 2 
         . 2 e 5 5 e e 5 5 5 e e 5 5 e 2 
@@ -609,7 +643,7 @@ function CallPlayer2 () {
         . . . . 2 1 f 2 2 2 f 1 2 . . . 
         . . . . 2 2 2 2 2 2 2 2 2 . . . 
         . . . e 2 2 f f f f f 2 2 e . . 
-        . 2 2 e 5 2 2 2 2 2 2 2 5 e 2 2 
+        . 2 2 e 5 2 2 1 2 1 2 2 5 e 2 2 
         . 2 e e e e 5 5 5 5 5 e e e e 2 
         . 2 e e 5 5 e e e e e 5 5 e e 2 
         . 2 e 5 5 e e 5 5 5 e e 5 5 e 2 
@@ -851,7 +885,7 @@ function CallPlayer2 () {
         . . . . 2 1 f 2 2 2 f 1 2 . . . 
         . . . . 2 2 2 2 2 2 2 2 2 . . . 
         . . . e 2 2 f f f f f 2 2 e . . 
-        . 2 2 e 5 2 2 2 2 2 2 2 5 e 2 2 
+        . 2 2 e 5 2 2 1 2 1 2 2 5 e 2 2 
         . 2 e e e e 5 5 5 5 5 e e e e 2 
         . 2 e e 5 5 e e e e e 5 5 e e 2 
         . 2 e 5 5 e e 5 5 5 e e 5 5 e 2 
@@ -873,44 +907,43 @@ let anim1back: animation.Animation = null
 let Straw: Sprite = null
 let TurtleBlue: Sprite = null
 let TurtleRed: Sprite = null
+make_map()
 CallPlayer1()
 CallPlayer2()
-controller.moveSprite(TurtleRed)
-controller.player2.moveSprite(TurtleBlue)
+scene.cameraFollowSprite(TurtleRed)
+TurtleBlue.setStayInScreen(true)
 forever(function () {
-    if (controller.player1.isPressed(ControllerButton.Down)) {
-        animation.setAction(TurtleRed, ActionKind.Walk_Back)
-        TurtleRed.vy += -1.5
-    } else if (controller.player1.isPressed(ControllerButton.Up)) {
-        animation.setAction(TurtleRed, ActionKind.Walk_Foward)
-        TurtleRed.vy += -1.5
-    } else if (controller.player1.isPressed(ControllerButton.Right)) {
-        animation.setAction(TurtleRed, ActionKind.Walk_Right)
-        TurtleRed.vx += -1.5
-    } else if (controller.player1.isPressed(ControllerButton.Left)) {
-        animation.setAction(TurtleRed, ActionKind.Walk_Left)
-        TurtleRed.vx += -1.5
-    } else {
-        animation.setAction(TurtleRed, ActionKind.IDLE)
-    }
+	
 })
 forever(function () {
     if (controller.player2.isPressed(ControllerButton.Down)) {
         animation.setAction(TurtleBlue, ActionKind.Walk_Back)
-        TurtleBlue.vy += -1.5
+        TurtleBlue.y += 1.5
     } else if (controller.player2.isPressed(ControllerButton.Up)) {
         animation.setAction(TurtleBlue, ActionKind.Walk_Foward)
-        TurtleBlue.vy += -1.5
+        TurtleBlue.y += -1.5
     } else if (controller.player2.isPressed(ControllerButton.Right)) {
         animation.setAction(TurtleBlue, ActionKind.Walk_Right)
-        TurtleBlue.vx += -1.5
+        TurtleBlue.x += 1.5
     } else if (controller.player2.isPressed(ControllerButton.Left)) {
         animation.setAction(TurtleBlue, ActionKind.Walk_Left)
-        TurtleBlue.vx += -1.5
+        TurtleBlue.x += -1.5
     } else {
         animation.setAction(TurtleBlue, ActionKind.IDLE)
     }
-})
-forever(function () {
-	
+    if (controller.player1.isPressed(ControllerButton.Down)) {
+        animation.setAction(TurtleRed, ActionKind.Walk_Back)
+        TurtleRed.y += 1.5
+    } else if (controller.player1.isPressed(ControllerButton.Up)) {
+        animation.setAction(TurtleRed, ActionKind.Walk_Foward)
+        TurtleRed.y += -1.5
+    } else if (controller.player1.isPressed(ControllerButton.Right)) {
+        animation.setAction(TurtleRed, ActionKind.Walk_Right)
+        TurtleRed.x += 1.5
+    } else if (controller.player1.isPressed(ControllerButton.Left)) {
+        animation.setAction(TurtleRed, ActionKind.Walk_Left)
+        TurtleRed.x += -1.5
+    } else {
+        animation.setAction(TurtleRed, ActionKind.IDLE)
+    }
 })
