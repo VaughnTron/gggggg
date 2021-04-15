@@ -946,4 +946,9 @@ forever(function () {
     } else {
         animation.setAction(TurtleRed, ActionKind.IDLE)
     }
+    if (controller.player2.isPressed(ControllerButton.A)) {
+        scene.cameraShake(2, 100)
+    } else if (controller.player1.isPressed(ControllerButton.A)) {
+        scene.cameraShake(2, 100)
+    }
 })
