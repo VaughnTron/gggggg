@@ -6,7 +6,9 @@ enum ActionKind {
     Walk_Foward,
     Walk_Back,
     Walk_Left,
-    IDLE
+    IDLE,
+    redFIRE,
+    blueFIRE
 }
 function CallEnemy () {
     Straw = sprites.create(img`
@@ -899,6 +901,7 @@ function CallPlayer2 () {
         `)
     animation.attachAnimation(TurtleRed, anim)
 }
+let redfire: Sprite = null
 let anim: animation.Animation = null
 let anim4left: animation.Animation = null
 let anim3right: animation.Animation = null
@@ -946,9 +949,87 @@ forever(function () {
     } else {
         animation.setAction(TurtleRed, ActionKind.IDLE)
     }
-    if (controller.player2.isPressed(ControllerButton.A)) {
+    if (controller.player1.isPressed(ControllerButton.A) && controller.player1.isPressed(ControllerButton.Right)) {
         scene.cameraShake(2, 100)
-    } else if (controller.player1.isPressed(ControllerButton.A)) {
+        redfire = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 4 4 . . . . . . . 
+            . . . . . 4 4 d 7 4 . . . . . . 
+            . . . 4 4 d d 4 4 4 4 . . . . . 
+            . 4 4 5 7 4 4 5 d 7 4 . . . . . 
+            4 5 5 7 d 5 5 d 7 7 4 . . . . . 
+            7 4 4 5 5 5 5 5 7 4 4 . . . . . 
+            7 d 5 d 7 7 4 4 4 . . . . . . . 
+            4 4 4 4 7 . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, TurtleRed, 100, 0)
+    } else if (controller.player1.isPressed(ControllerButton.A) && controller.player1.isPressed(ControllerButton.Left)) {
         scene.cameraShake(2, 100)
+        redfire = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 4 4 . . . . . . . 
+            . . . . . 4 4 d 7 4 . . . . . . 
+            . . . 4 4 d d 4 4 4 4 . . . . . 
+            . 4 4 5 7 4 4 5 d 7 4 . . . . . 
+            4 5 5 7 d 5 5 d 7 7 4 . . . . . 
+            7 4 4 5 5 5 5 5 7 4 4 . . . . . 
+            7 d 5 d 7 7 4 4 4 . . . . . . . 
+            4 4 4 4 7 . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, TurtleRed, -100, 0)
+    } else if (controller.player1.isPressed(ControllerButton.A) && controller.player1.isPressed(ControllerButton.Down)) {
+        scene.cameraShake(2, 100)
+        redfire = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 4 4 . . . . . . . 
+            . . . . . 4 4 d 7 4 . . . . . . 
+            . . . 4 4 d d 4 4 4 4 . . . . . 
+            . 4 4 5 7 4 4 5 d 7 4 . . . . . 
+            4 5 5 7 d 5 5 d 7 7 4 . . . . . 
+            7 4 4 5 5 5 5 5 7 4 4 . . . . . 
+            7 d 5 d 7 7 4 4 4 . . . . . . . 
+            4 4 4 4 7 . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, TurtleRed, 0, 100)
+    } else if (controller.player1.isPressed(ControllerButton.A) && controller.player1.isPressed(ControllerButton.Up)) {
+        scene.cameraShake(2, 100)
+        redfire = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 4 4 . . . . . . . 
+            . . . . . 4 4 d 7 4 . . . . . . 
+            . . . 4 4 d d 4 4 4 4 . . . . . 
+            . 4 4 5 7 4 4 5 d 7 4 . . . . . 
+            4 5 5 7 d 5 5 d 7 7 4 . . . . . 
+            7 4 4 5 5 5 5 5 7 4 4 . . . . . 
+            7 d 5 d 7 7 4 4 4 . . . . . . . 
+            4 4 4 4 7 . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, TurtleRed, 0, -100)
+    } else {
+    	
     }
 })
